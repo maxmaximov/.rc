@@ -104,3 +104,5 @@ if [ -f /usr/bin/grc ]; then
   alias cvs="grc --colour=auto cvs"
   alias netstat="grc --colour=auto netstat"
 fi
+
+alias :q='exit'
