@@ -73,7 +73,7 @@ menu Encoding.CP1251   :e ++enc=cp1251<cr>
 menu Encoding.CP866    :e ++enc=cp866<cr>
 menu Encoding.KOI8-U   :e ++enc=koi8-u<cr>
 menu Encoding.UTF-8    :e ++enc=utf-8<cr>
-map <F8> :emenu Encoding.<tab>
+map <F6> :emenu Encoding.<tab>
 
 nmap <F2> :w<cr>
 vmap <F2> <esc>:w<cr>i
@@ -82,5 +82,3 @@ imap <F2> <esc>:w<cr>i
 nmap <F10> :q!<cr>
 vmap <F10> <esc>:q!<cr>i
 imap <F10> <esc>:q!<cr>i
-
-echo "\n\nВдруг из маминой из спальни ололо пыщь-пыщь реальни!!!!!!111111\n\n"
