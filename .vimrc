@@ -1,52 +1,200 @@
 syntax on
 
+filetype plugin on
+set completefunc=VjdeCompletionFun
+set completeopt=menu,preview
+
+colorscheme default             "desert256 inkpot gardener peaksea
 set t_Co=256
-set bg=light
-colorscheme default     "desert256 inkpot gardener peaksea
+set background=light
 
-set ai                  "autoindent
-set lbr                 "linebreak
-set sc                  "showcmd
-set nocp                "compatible
-set bs=2                "backspace=indent,eol,start
+set linebreak
+set nocompatible
+set backspace=2                 "indent,eol,start
+set nowrap                      "не разрывать строку
+set noerrorbells
+set visualbell t_vb=
+set autoread
 
-set expandtab           "вставлять пробелы, а не табы
-set ts=4                "tabstop
-set softtabstop=4       "колличество пробелов в табе
-set shiftwidth=4        "колличество пробелов при сдвиге блока
+set mouse=a
+set mousemodel=extend           "popup
 
-set hlsearch            "подсвечивать найденные фрагменты
-set ignorecase          "игнорировать прописные/строчные при поиске
-set incsearch           "при поиске перескакивать на найденный текст в процессе набора строки
+set showmatch                   "подсвечивать парные скобки, кавычки
+set matchpairs+=<:>             "(:),{:},[:],<:>
 
-set nowrap              "не разрывать строку
-set showmatch           "подсвечивать парные скобки, кавычки
-set ruler               "показывать текущую позицию
-set nonumber            "нумерация строк
-
-set scrolloff=3
-set title               "отображать имя файла
-set ch=2                "высота командной строки
-set sidescroll=5
-set smartindent
-set foldenable 
-set foldmethod=indent   "syntax
+set showcmd
+set ruler                       "показывать текущую позицию
+set nonumber                    "нумерация строк
+set title                       "отображать имя файла
+set cmdheight=1                 "высота командной строки
 set laststatus=2
-set vb t_vb=
+set modeline
+set showtabline=2
+
+"set scrolljump=3
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=5
+
+set tabstop=4
+set softtabstop=4               "колличество пробелов в табе
+set shiftwidth=4                "колличество пробелов при сдвиге блока
+set expandtab                   "вставлять пробелы, а не табы
+set autoindent
+set smartindent
+"filetype plugin indent on
+
+set hlsearch                    "подсвечивать найденные фрагменты
+set incsearch                   "при поиске перескакивать на найденный текст в процессе набора строки
+
+set ignorecase                  "игнорировать прописные/строчные при поиске
+set smartcase
+
+set foldenable
+set foldmethod=syntax           "indent
 
 "set list listchars=eol:↵,tab:▹‧,trail:_,extends:▸,precedes:◂
 set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
 
 set wildmenu
-set wcm=<Tab>                                   "wildcharm
-set wildmode=list:longest
+set wildcharm=<Tab>
+set wildmode=list:longest,full
 
 set nobackup
 "set backup
 "set backupdir=$HOME/.vim/backups
 "set directory=$HOME/.vim/temp
 
-inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,cp1251
+
+
+map ё `
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Ё ~
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >
+
+
+inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
+
+
+nmap <f2> :w<cr>
+vmap <f2> <esc><f2>
+imap <f2> <esc><f2>i
+
+
+nmap <f10> :q<cr>
+vmap <f10> <esc><f10>
+imap <f10> <esc><f10>
+
+nmap <s-f10> :wq<cr>
+vmap <s-f10> <esc><s-f10>
+imap <s-f10> <esc><s-f10>
+
+nmap <c-f10> :q!<cr>
+vmap <c-f10> <esc><c-f10>
+imap <c-f10> <esc><c-f10>
+
+
+nmap <c-t> :tabnew<cr>
+imap <c-t> <esc><c-t>
+
+"nmap <c-s-tab> :tabN<cr>
+"imap <c-s-tab> <esc><c-s-tab>
+nmap <s-left> :tabN<cr>
+imap <s-left> <esc><s-left>
+
+"nmap <c-tab> :tabn<cr>
+"imap <c-tab> <esc><c-tab>
+nmap <s-right> :tabn<cr>
+imap <s-right> <esc><s-right>
+
+
+menu Encoding.cp1251   :e ++enc=cp1251<cr>
+menu Encoding.cp866    :e ++enc=cp866<cr>
+menu Encoding.koi8-r   :e ++enc=koi8-r<cr>
+menu Encoding.utf-8    :e ++enc=utf-8<cr>
+nmap <s-f8> :emenu Encoding.<tab>
+vmap <s-f8> <esc><s-f8>
+imap <s-f8> <esc><s-f8>
+
+"nmap <f8> :call ChangeEncoding()<cr>
+nmap <f8> :echo &fileencoding<cr>
+vmap <f8> <esc><s-f8>
+imap <f8> <esc><s-f8>
+
+
+function ChangeEncoding()
+    if &fileencoding == 'cp1251'
+        :e ++enc=utf-8
+    else
+        :e ++enc=cp1251
+    endif
+endfunction
+
 
 function ModeChange()
     if getline(1) =~ "^#!"
@@ -57,28 +205,12 @@ function ModeChange()
 endfunction
 au BufWritePost * call ModeChange()
 
-map <S-tab> :tabprevious<cr>
-nmap <S-tab> :tabprevious<cr>
-imap <S-tab> <ESC>:tabprevious<cr>i
-map <C-tab> :tabnext<cr>
-nmap <C-tab> :tabnext<cr>
-imap <C-tab> <ESC>:tabnext<cr>i
-nmap <C-t> :tabnew<cr>
-imap <C-t> <ESC>:tabnew<cr>
 
-set encoding=utf-8
-set termencoding=utf-8
-set fileencoding=utf-8
-menu Encoding.CP1251   :e ++enc=cp1251<cr>
-menu Encoding.CP866    :e ++enc=cp866<cr>
-menu Encoding.KOI8-U   :e ++enc=koi8-u<cr>
-menu Encoding.UTF-8    :e ++enc=utf-8<cr>
-map <F6> :emenu Encoding.<tab>
+imap {<cr> {<cr>}<esc>O
+"imap {{{<cr> {{{<cr>}}}<esc>O
+"imap { {}
+"imap ( ()
 
-nmap <F2> :w<cr>
-vmap <F2> <esc>:w<cr>i
-imap <F2> <esc>:w<cr>i
-
-nmap <F10> :q!<cr>
-vmap <F10> <esc>:q!<cr>i
-imap <F10> <esc>:q!<cr>i
+imap <c-space> <c-x><c-u>
+imap <c-m-space> <c-x><c-o>
+imap <m-space> <c-n>
