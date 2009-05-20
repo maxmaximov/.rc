@@ -22,14 +22,14 @@ set mousemodel=extend           "popup
 set showmatch                   "подсвечивать парные скобки, кавычки
 set matchpairs+=<:>             "(:),{:},[:],<:>
 
-set showcmd
-set ruler                       "показывать текущую позицию
 set nonumber                    "нумерация строк
-set title                       "отображать имя файла
+set noshowcmd
 set cmdheight=1                 "высота командной строки
+set notitle                     "отображать имя файла
 set laststatus=2
-set modeline
+set ruler                       "показывать текущую позицию
 set showtabline=2
+set nomodeline
 
 "set scrolljump=3
 set scrolloff=3
