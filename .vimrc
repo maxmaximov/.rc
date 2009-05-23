@@ -1,8 +1,15 @@
 syntax on
 
+filetype on
 filetype plugin on
+filetype indent on
 set completefunc=VjdeCompletionFun
 set completeopt=menu,preview
+
+runtime macros/matchit.vim
+
+"set history=1000
+"set hidden
 
 colorscheme default             "desert256 inkpot gardener peaksea
 set t_Co=256
@@ -16,8 +23,8 @@ set noerrorbells
 set visualbell t_vb=
 set autoread
 
-set mouse=a
-set mousemodel=extend           "popup
+"set mouse=a
+"set mousemodel=extend           "popup
 
 set showmatch                   "подсвечивать парные скобки, кавычки
 set matchpairs+=<:>             "(:),{:},[:],<:>
@@ -42,7 +49,6 @@ set shiftwidth=4                "колличество пробелов при 
 set expandtab                   "вставлять пробелы, а не табы
 set autoindent
 set smartindent
-"filetype plugin indent on
 
 set hlsearch                    "подсвечивать найденные фрагменты
 set incsearch                   "при поиске перескакивать на найденный текст в процессе набора строки
@@ -201,7 +207,7 @@ function ModeChange()
         if getline(1) =~ "/bin/"
             silent !chmod a+x <afile>
         endif
-      endif
+    endif
 endfunction
 au BufWritePost * call ModeChange()
 
