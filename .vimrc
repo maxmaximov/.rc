@@ -21,6 +21,7 @@ set backspace=2                 "indent,eol,start
 set nowrap                      "не разрывать строку
 set noerrorbells
 set visualbell t_vb=
+
 set autoread
 
 "set mouse=a
@@ -63,8 +64,8 @@ set foldmethod=syntax           "indent
 set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
 
 set wildmenu
-set wildcharm=<Tab>
-set wildmode=list:longest,full
+"set wildcharm=<Tab>
+"set wildmode=list:longest,full
 
 set nobackup
 "set backup
