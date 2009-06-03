@@ -15,12 +15,14 @@ colorscheme default             "desert256 inkpot gardener peaksea
 set t_Co=256
 set background=light
 
-set linebreak
 set nocompatible
-set backspace=2                 "indent,eol,start
-set nowrap                      "не разрывать строку
 set noerrorbells
 set visualbell t_vb=
+
+set nowrap                      "не разрывать строку
+"set linebreak
+set backspace=2                 "indent,eol,start
+set whichwrap=b,s,h,l,<,>,~,[,]
 
 set autoread
 
@@ -31,7 +33,7 @@ set showmatch                   "подсвечивать парные скоб�
 set matchpairs+=<:>             "(:),{:},[:],<:>
 
 set nonumber                    "нумерация строк
-set noshowcmd
+set showcmd
 set cmdheight=1                 "высота командной строки
 set notitle                     "отображать имя файла
 set laststatus=2
@@ -45,17 +47,17 @@ set sidescroll=1
 set sidescrolloff=5
 
 set tabstop=4
-set softtabstop=4               "колличество пробелов в табе
 set shiftwidth=4                "колличество пробелов при сдвиге блока
 set expandtab                   "вставлять пробелы, а не табы
+set softtabstop=4               "колличество пробелов в табе
 set autoindent
 set smartindent
 
 set hlsearch                    "подсвечивать найденные фрагменты
 set incsearch                   "при поиске перескакивать на найденный текст в процессе набора строки
-
 set ignorecase                  "игнорировать прописные/строчные при поиске
 set smartcase
+set nowrapscan
 
 set foldenable
 set foldmethod=syntax           "indent
@@ -68,6 +70,7 @@ set wildmenu
 "set wildmode=list:longest,full
 
 set nobackup
+set noswapfile
 "set backup
 "set backupdir=$HOME/.vim/backups
 "set directory=$HOME/.vim/temp
@@ -221,3 +224,22 @@ imap {<cr> {<cr>}<esc>O
 imap <c-space> <c-x><c-u>
 imap <c-m-space> <c-x><c-o>
 imap <m-space> <c-n>
+
+
+set nospell
+set spelllang=ru,en
+
+nmap <f7> :call SpellToggle()<cr>
+vmap <f7> <esc><s-f7>
+imap <f7> <esc><s-f7>
+
+function SpellToggle()
+    if &spell == 1
+        :setlocal nospell
+    else
+        :setlocal spell
+    endif
+endfunction
+
+
+"set fileformat=unix
