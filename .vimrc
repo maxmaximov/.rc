@@ -61,6 +61,7 @@ set nowrapscan
 
 set foldenable
 set foldmethod=syntax           "indent
+set foldclose=all
 
 "set list listchars=eol:↵,tab:▹‧,trail:_,extends:▸,precedes:◂
 set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
@@ -191,19 +192,27 @@ nmap <s-f8> :emenu Encoding.<tab>
 vmap <s-f8> <esc><s-f8>
 imap <s-f8> <esc><s-f8>
 
-"nmap <f8> :call ChangeEncoding()<cr>
+menu FileEncoding.utf-8    :set fileencoding=utf-8<cr>
+menu FileEncoding.cp1251   :set fileencoding=cp1251<cr>
+menu FileEncoding.cp866    :set fileencoding=cp866<cr>
+menu FileEncoding.koi8-r   :set fileencoding=koi8-r<cr>
+nmap <c-f8> :emenu FileEncoding.<tab>
+vmap <c-f8> <esc><c-f8>
+imap <c-f8> <esc><c-f8>
+
+"nmap <f8> :call EncodingToggle()<cr>
 nmap <f8> :echo &fileencoding<cr>
 vmap <f8> <esc><s-f8>
 imap <f8> <esc><s-f8>
 
 
-function ChangeEncoding()
-    if &fileencoding == 'cp1251'
-        :e ++enc=utf-8
-    else
-        :e ++enc=cp1251
-    endif
-endfunction
+"function EncodingToggle()
+"    if &fileencoding == 'cp1251'
+"        :e ++enc=utf-8
+"    else
+"        :e ++enc=cp1251
+"    endif
+"endfunction
 
 
 function ModeChange()
@@ -229,17 +238,32 @@ imap <m-space> <c-n>
 set nospell
 set spelllang=ru,en
 
-nmap <f7> :call SpellToggle()<cr>
+"nmap <f7> :call SpellToggle()<cr>
+nmap <f7> :set spell!<cr>
 vmap <f7> <esc><s-f7>
 imap <f7> <esc><s-f7>
 
-function SpellToggle()
-    if &spell == 1
-        :setlocal nospell
-    else
-        :setlocal spell
-    endif
-endfunction
+"function SpellToggle()
+"    if &spell == 1
+"        :setlocal nospell
+"    else
+"        :setlocal spell
+"    endif
+"endfunction
 
 
 "set fileformat=unix
+
+
+if &binary
+augroup Binary
+    au!
+    au BufReadPre * let &bin=1
+    au BufReadPost * if &bin | %!xxd -c 32
+    au BufReadPost * set ft=xxd | endif
+    au BufWritePre * if &bin | %!xxd -r -c 32
+    au BufWritePre * endif
+    au BufWritePost * if &bin | %!xxd -c 32
+    au BufWritePost * set nomod | endif
+augroup END
+endif
