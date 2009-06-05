@@ -3,10 +3,10 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
-set completefunc=VjdeCompletionFun
-set completeopt=menu,preview
+"set completefunc=VjdeCompletionFun
+"set completeopt=menu,preview
 
-runtime macros/matchit.vim
+"runtime macros/matchit.vim
 
 "set history=1000
 "set hidden
@@ -36,10 +36,17 @@ set nonumber                    "нумерация строк
 set showcmd
 set cmdheight=1                 "высота командной строки
 set notitle                     "отображать имя файла
-set laststatus=2
-set ruler                       "показывать текущую позицию
 set showtabline=2
 set nomodeline
+
+set laststatus=2                "always
+set statusline=%!EvaluateStatusLine()
+set ruler                       "показывать текущую позицию
+
+function EvaluateStatusLine()
+    let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
+    return status
+endfunction
 
 "set scrolljump=3
 set scrolloff=3
