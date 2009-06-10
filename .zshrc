@@ -14,6 +14,7 @@ zstyle :compinstall filename '/home/maxmaximov/.zshrc'
 setopt correct_all
 
 setopt autocd
+setopt no_beep
 
 
 autoload -Uz compinit
@@ -28,7 +29,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:processes' command 'ps -xuf'
 zstyle ':completion:*:processes' sort false
 zstyle ':completion:*:processes-names' command 'ps xho command'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=$color[cyan]=$color[red]"
 
 hosts=(${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*})
 zstyle ':completion:*:hosts' hosts $hosts
@@ -51,8 +53,9 @@ export LS_COLORS
 
 setopt prompt_subst
 
-export PROMPT='%{$fg[cyan]%}%n%{$fg[black]%}@%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/%{$fg[black]%}%# %{$reset_color%}'
-export RPROMPT='%{$fg[blue]%}%T%{$reset_color%}'
+#export PROMPT='%{$fg[cyan]%}%n%{$fg[black]%}@%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/%{$fg[black]%}%# %{$reset_color%}'
+#export RPROMPT='%{$fg[blue]%}%T%{$reset_color%}'
+export PROMPT='%{$fg[blue]%}%n%{$fg[black]%}:%{$fg[red]%}%/ %{$reset_color%}'
 
 
 autoload -U predict-on
@@ -67,20 +70,20 @@ export DEBEMAIL="maxmaximov@yandex-team.ru"
 
 
 case $TERM in
-  xterm*|rxvt)
-    precmd () { print -Pn "\e]0;%n@%m: %~\a" }
-    preexec () { print -Pn "\e]0;%n@%m: $1\a" }
-    ;;
-  screen)
-    precmd () { print -Pn "\033k%~\033\\" }
-    preexec () { print -Pn "\033k$1\033\\" }
-    ;;
+    xterm*|rxvt)
+        precmd () { print -Pn "\e]0;%n@%m: %~\a" }
+        preexec () { print -Pn "\e]0;%n@%m: $1\a" }
+        ;;
+    screen)
+        precmd () { print -Pn "\033k%~\033\\" }
+        preexec () { print -Pn "\033k$1\033\\" }
+        ;;
 esac
 
 set TERM xterm-256color; export TERM
 
 if [ -d ~/bin ] ; then
-  PATH=~/bin:"${PATH}"
+    PATH=~/bin:"${PATH}"
 fi
 
 
@@ -97,12 +100,19 @@ alias grep='grep --exclude="*.svn*"'
 alias dl='trash_path=$(date +$HOME/trash/%Y.%m.%d/%H.%M.%S.%N/) && mkdir -p $trash_path && mv -t $trash_path'
 
 if [ -f /usr/bin/grc ]; then
-  alias ping="grc --colour=auto ping"
-  alias traceroute="grc --colour=auto traceroute"
-  alias make="grc --colour=auto make"
-  alias diff="grc --colour=auto diff"
-  alias cvs="grc --colour=auto cvs"
-  alias netstat="grc --colour=auto netstat"
+    alias ping="grc --colour=auto ping"
+    alias traceroute="grc --colour=auto traceroute"
+    alias make="grc --colour=auto make"
+    alias diff="grc --colour=auto diff"
+    alias cvs="grc --colour=auto cvs"
+    alias netstat="grc --colour=auto netstat"
+
+    alias logc="grc cat"
+    alias logt="grc tail"
+    alias logh="grc head"
 fi
 
 alias :q='exit'
+
+alias df='df -h'
+alias du='du -h'
