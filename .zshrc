@@ -55,7 +55,7 @@ setopt prompt_subst
 
 #export PROMPT='%{$fg[cyan]%}%n%{$fg[black]%}@%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/%{$fg[black]%}%# %{$reset_color%}'
 #export RPROMPT='%{$fg[blue]%}%T%{$reset_color%}'
-export PROMPT='%{$fg[blue]%}%n%{$fg[black]%}:%{$fg[red]%}%/ %{$reset_color%}'
+export PROMPT='%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/ %{$reset_color%}'
 
 
 autoload -U predict-on
