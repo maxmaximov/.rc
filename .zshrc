@@ -56,8 +56,8 @@ setopt prompt_subst
 #export PROMPT='%{$fg[cyan]%}%n%{$fg[black]%}@%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/%{$fg[black]%}%# %{$reset_color%}'
 #export RPROMPT='%{$fg[blue]%}%T%{$reset_color%}'
 export PROMPT='%{$fg[blue]%}%m%{$fg[black]%}:%{$fg[red]%}%/ %{$reset_color%}'
-if [ "$USER" = 'root' ]; then
-    export PROMPT="${PROMPT}%{$bg[red]%}%{$fg[white]%}achtung!!!11%{$reset_color%} "
+if [ "$USER" != 'maxmaximov' ]; then
+    export PROMPT="${PROMPT}%{$bg[red]%}%{$fg[white]%} achtung! %{$reset_color%} "
 fi
 
 autoload -U predict-on
