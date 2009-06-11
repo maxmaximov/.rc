@@ -1,0 +1,13 @@
+[user]
+    name = Max Maximov
+    email = max.maximov@gmail.com
+[alias]
+    co = checkout
+    st = status
+    di = diff
+    ci = commit
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
