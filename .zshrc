@@ -120,3 +120,5 @@ alias df='df -h'
 alias du='du -h'
 
 alias su='sudo su -m'
+
+alias vim='vim -p'
