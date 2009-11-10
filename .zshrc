@@ -39,6 +39,7 @@ zstyle ':completion:*:hosts' hosts $hosts
 
 zstyle ':completion:*:(ssh|scp):*:users' ignored-patterns `cat /etc/passwd | awk -F ":" '{ if($3<1000) print $1 }'`
 
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 autoload -U colors
 colors
@@ -88,37 +89,16 @@ if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
+# tell the shell that the function mycompletion can do completion
+# when called by the widget name my-completion-widget, and that
+# it behaves like the existing widget complete-word
+zle -C my-completion-widget .complete-word mycompletion
 
-alias ls='ls --color=auto'
-alias l='ls --classify --human-readable'
-alias ll='ls --classify --human-readable -l'
-alias la='ls --almost-all --classify --human-readable -l'
+# define a key that calls the completion widget
+bindkey '^x^i' my-completion-widget
 
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias grep='grep --exclude="*.svn*"'
-
-alias dl='trash_path=$(date +$HOME/trash/%Y.%m.%d/%H.%M.%S.%N/) && mkdir -p $trash_path && mv -t $trash_path'
-
-if [ -f /usr/bin/grc ]; then
-    alias ping="grc --colour=auto ping"
-    alias traceroute="grc --colour=auto traceroute"
-    alias make="grc --colour=auto make"
-    alias diff="grc --colour=auto diff"
-    alias cvs="grc --colour=auto cvs"
-    alias netstat="grc --colour=auto netstat"
-
-    alias logc="grc cat"
-    alias logt="grc tail"
-    alias logh="grc head"
-fi
-
-alias :q='exit'
-
-alias df='df -h'
-alias du='du -h'
-
-alias su='sudo su -m'
-
-alias vim='vim -p'
+# define the function that will be called
+mycompletion() {
+# add a list of completions
+    compadd alpha bravo charlie delta
+}

@@ -1,13 +1,31 @@
 [user]
     name = Max Maximov
     email = max.maximov@gmail.com
+
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [alias]
     co = checkout
     st = status
     di = diff
     ci = commit
+    up = remote update
+    br = branch
+
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
