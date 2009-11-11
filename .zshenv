@@ -28,4 +28,6 @@ alias :q='exit'
 alias df='df -h'
 alias du='du -h'
 
+alias vim='vim -p'
+
 alias su='sudo su -m'
