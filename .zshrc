@@ -102,3 +102,5 @@ mycompletion() {
 # add a list of completions
     compadd alpha bravo charlie delta
 }
+
+umask 0002
