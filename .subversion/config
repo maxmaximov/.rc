@@ -1,0 +1,38 @@
+# Comment fo Vim
+[auth]
+store-passwords = no
+store-auth-creds = no
+
+[helpers]
+# editor-cmd = editor (vi, emacs, notepad, etc.)
+diff-cmd = colordiff
+# diff3-cmd = diff3_program (diff3, gdiff3, etc.)
+# diff3-has-program-arg = [true | false]
+# merge-tool-cmd = merge_command
+
+[tunnels]
+ssh = $SVN_SSH ssh -o ControlMaster=no
+# rsh = rsh
+# rsh = /path/to/rsh -l myusername
+
+[miscellany]
+# global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ #*# .#* .*.swp .DS_Store
+# log-encoding = latin1
+# use-commit-times = yes
+# no-unlock = yes
+# mime-types-file = /path/to/mime.types
+# preserved-conflict-file-exts = doc ppt xls od?
+enable-auto-props = yes
+interactive-conflicts = no
+
+[auto-props]
+# *.c = svn:eol-style=native
+# *.cpp = svn:eol-style=native
+# *.h = svn:eol-style=native
+# *.dsp = svn:eol-style=CRLF
+# *.dsw = svn:eol-style=CRLF
+# *.sh = svn:eol-style=native;svn:executable
+# *.txt = svn:eol-style=native
+# *.png = svn:mime-type=image/png
+# *.jpg = svn:mime-type=image/jpeg
+# Makefile = svn:eol-style=native
