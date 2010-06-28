@@ -274,3 +274,16 @@ augroup Binary
     au BufWritePost * set nomod | endif
 augroup END
 endif
+
+
+function F5()
+    echo &filetype
+    if &filetype == 'xml'
+        "silent !firefox -chrome "%"
+        !firefox -chrome "%"
+    endif
+endfunction
+
+nmap <f5> :call F5()<cr>
+vmap <f5> <esc><s-f5>
+imap <f5> <esc><s-f5>
