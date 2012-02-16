@@ -2,7 +2,7 @@
 #alias l='ls --classify'
 #alias ll='ls --classify --human-readable -l'
 #alias la='ls --almost-all --classify --human-readable -l'
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 alias l='ls -F'
 alias ll='ls -F -h -l'
 alias la='ls -A -F -h -l'
