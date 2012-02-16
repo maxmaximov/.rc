@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.ssh/config
+!.subversion/config
+!.vim
+!.git-info.sh
+!.gitconfig
+!.vimrc
+!.zshenv
+!.zshrc
+!README
