@@ -182,12 +182,12 @@ imap <c-t> <esc><c-t>
 
 "nmap <c-s-tab> :tabN<cr>
 "imap <c-s-tab> <esc><c-s-tab>
-nmap <s-left> :tabN<cr>
+nmap <s-left> gT
 imap <s-left> <esc><s-left>
 
 "nmap <c-tab> :tabn<cr>
 "imap <c-tab> <esc><c-tab>
-nmap <s-right> :tabn<cr>
+nmap <s-right> gt
 imap <s-right> <esc><s-right>
 
 
