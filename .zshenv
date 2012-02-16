@@ -34,3 +34,5 @@ alias su='sudo su -m'
 
 alias dch='debchange --distributor=Debian --release-heuristic changelog'
 alias release='dch --release && debcommit -m 'release' && debuild && debrelease && debclean'
+
+alias git-info="$HOME/.git-info.sh"
