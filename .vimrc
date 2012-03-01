@@ -87,6 +87,15 @@ set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251
 
+set gdefault                    "always global regex
+
+
+"turn on normal regex
+nmap / /\v
+vmap / /\v
+
+"more efficiency
+nmap ; :
 
 map ё `
 map й q
@@ -220,7 +229,6 @@ imap <f8> <esc><s-f8>
 "        :e ++enc=cp1251
 "    endif
 "endfunction
-
 
 function ModeChange()
     if getline(1) =~ "^#!"
