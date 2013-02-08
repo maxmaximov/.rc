@@ -2,7 +2,7 @@
 #alias l='ls --classify'
 #alias ll='ls --classify --human-readable -l'
 #alias la='ls --almost-all --classify --human-readable -l'
-alias ls='ls -G --color=auto'
+alias ls='ls -G'
 alias l='ls -F'
 alias ll='ls -F -h -l'
 alias la='ls -A -F -h -l'
@@ -40,3 +40,7 @@ alias dch='debchange --distributor=Debian --release-heuristic changelog'
 alias release='dch --release && debcommit -m 'release' && debuild && debrelease && debclean'
 
 alias git-info="$HOME/.git-info.sh"
+
+alias gti="git"
+
+alias jsdoc="~/node_modules/jsdoc/app/run.js"
