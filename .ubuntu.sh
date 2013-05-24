@@ -7,3 +7,4 @@ rm -rf rc
 git checkout .
 cd -
 sudo chsh -s /bin/bash maxmaximov
+zsh
