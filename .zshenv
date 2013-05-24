@@ -12,7 +12,6 @@ else
     # SOLARIS
 fi
 
-
 alias grep='grep --color=auto --exclude-dir node_modules'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -33,6 +32,10 @@ if [ -f /usr/bin/grc ]; then
     alias logh="grc head"
 fi
 
+if colordiff >/dev/null 2>&1; then
+    alias diff='colordiff'
+fi
+
 alias :q='exit'
 
 alias df='df -h'
@@ -44,8 +47,6 @@ alias su='sudo su -m'
 
 alias dch='debchange --distributor=Debian --release-heuristic changelog'
 alias release='dch --release && debcommit -m 'release' && debuild && debrelease && debclean'
-
-alias git-info="$HOME/.git-info.sh"
 
 alias gti="git"
 alias gi="git"
