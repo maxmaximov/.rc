@@ -83,7 +83,7 @@ set noswapfile
 "set backupdir=$HOME/.vim/backups
 "set directory=$HOME/.vim/temp
 
-set encoding=utf-8
+set encoding=utf-8 nobomb
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251
 
@@ -91,8 +91,8 @@ set gdefault                    "always global regex
 
 
 "turn on normal regex
-nmap / /\v
-vmap / /\v
+"nmap / /\v
+"vmap / /\v
 
 "more efficiency
 nmap ; :

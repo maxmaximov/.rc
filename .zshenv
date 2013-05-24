@@ -7,10 +7,10 @@ alias l='ls -F'
 alias ll='ls -F -h -l'
 alias la='ls -A -F -h -l'
 
-alias grep='grep --color=auto'
+alias grep='grep --color=auto --exclude-dir node_modules'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias grep='grep --exclude="*.svn*"'
+#alias grep='grep --exclude="*.svn*"'
 
 alias dl='trash_path=$(date +$HOME/trash/%Y.%m.%d/%H.%M.%S.%N/) && mkdir -p $trash_path && mv -t $trash_path'
 
@@ -42,5 +42,6 @@ alias release='dch --release && debcommit -m 'release' && debuild && debrelease 
 alias git-info="$HOME/.git-info.sh"
 
 alias gti="git"
+alias gi="git"
 
 alias jsdoc="~/node_modules/jsdoc/app/run.js"

@@ -8,5 +8,7 @@
 !/.vimrc
 !/.zshenv
 !/.zshrc
+!/.npmrc
+!/.osx
 !/README
 /.vim/.netrwhist
