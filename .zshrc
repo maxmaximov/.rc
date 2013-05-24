@@ -32,10 +32,12 @@ zstyle ':completion:*:processes-names' command 'ps xho command'
 #zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=$color[cyan]=$color[red]"
 
-hosts=(${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*})
-zstyle ':completion:*:hosts' hosts $hosts
-#hosts=(`cat ~/.ssh/known_hosts | tr , " " | awk '{ print $1 }'`)
-#zstyle '*' hosts $hosts
+if [ -d $HOME/.ssh/known_hosts ] ; then
+    hosts=(${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*})
+    zstyle ':completion:*:hosts' hosts $hosts
+    #hosts=(`cat ~/.ssh/known_hosts | tr , " " | awk '{ print $1 }'`)
+    #zstyle '*' hosts $hosts
+fi
 
 zstyle ':completion:*:(ssh|scp):*:users' ignored-patterns `cat /etc/passwd | awk -F ":" '{ if($3<1000) print $1 }'`
 
