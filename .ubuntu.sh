@@ -7,5 +7,5 @@ mv rc/.git .
 rm -rf rc
 git checkout .
 cd -
-sudo chsh -s /bin/bash maxmaximov
+sudo chsh -s /bin/zsh maxmaximov
 zsh
