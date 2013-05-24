@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo apt-get install --force-yes vim zsh git colordiff nodejs
+sudo apt-get --yes install vim zsh git colordiff nodejs
