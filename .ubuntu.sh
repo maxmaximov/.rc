@@ -1,9 +1,9 @@
 #!/bin/sh
 sudo apt-get --yes install vim zsh git colordiff nodejs
 cd
-git clone --no-checkout git@github.com:maxmaximov/rc.git
+git clone git@github.com:maxmaximov/rc.git
 mv rc/.git .
-rmdir rc
-git reset --mixed HEAD
+rm -rf rc
+git checkout .
 cd -
 sudo chsh -s /bin/bash maxmaximov
