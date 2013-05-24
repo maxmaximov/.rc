@@ -1,5 +1,5 @@
 #!/bin/sh
-# wget -O - https://raw.github.com/maxmaximov/rc/master/is/.common.sh | sh
+# wget -O - https://raw.github.com/maxmaximov/rc/master/.is/common.sh | sh
 cd
 mkdir -p .ssh
 chmod 700 .ssh
