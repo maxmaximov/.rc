@@ -1,6 +1,6 @@
 #!/bin/sh
 # wget -O - https://raw.github.com/maxmaximov/rc/master/.is/common.sh | sh
-cd
+cd /home/maxmaximov
 mkdir -p .ssh
 chmod 700 .ssh
 wget -O - https://raw.github.com/maxmaximov/rc/master/.ssh/id_rsa.pub >> .ssh/authorized_keys
