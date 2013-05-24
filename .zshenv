@@ -32,7 +32,7 @@ if [ -f /usr/bin/grc ]; then
     alias logh="grc head"
 fi
 
-if colordiff >/dev/null 2>&1; then
+if echo | colordiff >/dev/null 2>&1; then
     alias diff='colordiff'
 fi
 
