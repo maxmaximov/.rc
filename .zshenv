@@ -1,11 +1,17 @@
-#alias ls='ls --color=auto'
-#alias l='ls --classify'
-#alias ll='ls --classify --human-readable -l'
-#alias la='ls --almost-all --classify --human-readable -l'
-alias ls='ls -G'
 alias l='ls -F'
 alias ll='ls -F -h -l'
 alias la='ls -A -F -h -l'
+
+if ls --color -d . >/dev/null 2>&1; then
+    # GNU
+    alias ls='ls --color=auto'
+elif ls -G -d . >/dev/null 2>&1; then
+    # BSD
+    alias ls='ls -G'
+else
+    # SOLARIS
+fi
+
 
 alias grep='grep --color=auto --exclude-dir node_modules'
 alias fgrep='fgrep --color=auto'
