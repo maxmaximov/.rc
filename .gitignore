@@ -10,5 +10,6 @@
 !/.npmrc
 !/.osx
 !/.ubuntu.sh
+!/.is/
 !/README
 /.vim/.netrwhist
