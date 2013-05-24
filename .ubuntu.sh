@@ -1,4 +1,5 @@
 #!/bin/sh
+# wget -O - http://raw.github.com/maxmaximov/rc/master/.ubuntu.sh | sh
 sudo apt-get --yes install vim zsh git colordiff nodejs
 cd
 git clone git@github.com:maxmaximov/rc.git
