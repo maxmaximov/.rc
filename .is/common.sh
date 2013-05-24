@@ -9,6 +9,6 @@ git clone git@github.com:maxmaximov/rc.git
 mv rc/.git .
 rm -rf rc
 git checkout .
+chown -R maxmaximov:maxmaximov /home/maxmaximov
+chsh -s /bin/zsh maxmaximov
 cd -
-chsh -s /bin/zsh
-zsh
