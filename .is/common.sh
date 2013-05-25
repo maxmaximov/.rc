@@ -6,6 +6,7 @@ chmod 700 .ssh
 wget -nv -O - https://raw.github.com/maxmaximov/rc/master/.ssh/id_rsa.pub >> .ssh/authorized_keys
 chmod 600 .ssh/*
 ssh -o "StrictHostKeyChecking no" git@github.com
+rm -rf rc
 git clone git@github.com:maxmaximov/rc.git
 cp -r rc/.git .
 rm -rf rc
