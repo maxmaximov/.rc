@@ -52,3 +52,7 @@ alias gti="git"
 alias gi="git"
 
 alias jsdoc="~/node_modules/jsdoc/app/run.js"
+
+if [ -f /usr/bin/nodejs ]; then
+    alias node="nodejs"
+fi
