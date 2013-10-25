@@ -22,6 +22,7 @@
     tpush = push
     tpull = pull
     tmerge = merge
+    tadd = add
     undo = reset --soft HEAD^
     s = status -s
 
