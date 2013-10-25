@@ -295,3 +295,7 @@ endfunction
 nmap <f5> :call F5()<cr>
 vmap <f5> <esc><s-f5>
 imap <f5> <esc><s-f5>
+
+
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
