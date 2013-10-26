@@ -1,7 +1,3 @@
-alias l='ls -F'
-alias ll='ls -F -h -l'
-alias la='ls -A -F -h -l'
-
 if ls --color -d . >/dev/null 2>&1; then
     # GNU
     alias ls='ls --color=auto'
@@ -11,6 +7,10 @@ elif ls -G -d . >/dev/null 2>&1; then
 else
     # SOLARIS
 fi
+
+alias l='ls -F'
+alias ll='ls -F -h -l'
+alias la='ls -A -F -h -l'
 
 alias grep='grep --color=auto --exclude-dir node_modules'
 alias fgrep='fgrep --color=auto'
