@@ -4,3 +4,9 @@
 [submodule ".vim/bundle/vim-stylus"]
 	path = .vim/bundle/vim-stylus
 	url = git@github.com:wavded/vim-stylus.git
+[submodule "/Users/maxmaximov/.vim/bundle/vim-airline"]
+	path = /Users/maxmaximov/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "/Users/maxmaximov/.vim/bundle/syntastic"]
+	path = /Users/maxmaximov/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
