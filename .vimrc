@@ -1,33 +1,28 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 syntax on
 
 filetype on
 filetype plugin on
 filetype indent on
-"set completefunc=VjdeCompletionFun
-"set completeopt=menu,preview
 
-"runtime macros/matchit.vim
+set nocompatible
 
-"set history=1000
-"set hidden
+set history=1000
 
 colorscheme default             "desert256 inkpot gardener peaksea
 set t_Co=256
 set background=light
 
-set nocompatible
 set noerrorbells
-set visualbell t_vb=
+set novisualbell
 
-set nowrap                      "не разрывать строку
-"set linebreak
-set backspace=2                 "indent,eol,start
+set nowrap
+set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,~,[,]
 
 set autoread
-
-"set mouse=a
-"set mousemodel=extend           "popup
 
 set showmatch                   "подсвечивать парные скобки, кавычки
 set matchpairs+=<:>             "(:),{:},[:],<:>
@@ -40,23 +35,23 @@ set showtabline=2
 set nomodeline
 
 set laststatus=2                "always
-set statusline=%!EvaluateStatusLine()
-set ruler                       "показывать текущую позицию
+"set statusline=%!EvaluateStatusLine()
+"set ruler                       "показывать текущую позицию
 
-function EvaluateStatusLine()
-    let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
-    return status
-endfunction
+"function EvaluateStatusLine()
+    "let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
+    "return status
+"endfunction
 
-"set scrolljump=3
 set scrolloff=3
 set sidescroll=1
 set sidescrolloff=5
 
 set tabstop=4
 set shiftwidth=4                "колличество пробелов при сдвиге блока
-set expandtab                   "вставлять пробелы, а не табы
 set softtabstop=4               "колличество пробелов в табе
+set expandtab                   "вставлять пробелы, а не табы
+
 set autoindent
 set smartindent
 
@@ -67,21 +62,15 @@ set smartcase
 set nowrapscan
 
 set foldenable
-set foldmethod=syntax           "indent
-set foldclose=all
+"set foldmethod=syntax           "indent
+"set foldclose=all
 
-"set list listchars=eol:↵,tab:▹‧,trail:_,extends:▸,precedes:◂
 set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
 
 set wildmenu
-"set wildcharm=<Tab>
-"set wildmode=list:longest,full
 
 set nobackup
 set noswapfile
-"set backup
-"set backupdir=$HOME/.vim/backups
-"set directory=$HOME/.vim/temp
 
 set encoding=utf-8 nobomb
 set termencoding=utf-8
@@ -89,13 +78,97 @@ set fileencodings=utf-8,cp1251
 
 set gdefault                    "always global regex
 
+let mapleader=","
+let g:mapleader=","
 
-"turn on normal regex
-"nmap / /\v
-"vmap / /\v
-
-"more efficiency
 nmap ; :
+
+nmap <leader>p :set invpaste<cr>
+
+nmap <c-t> :tabnew<cr>
+imap <c-t> <esc><c-t>
+nmap <s-left> gT
+imap <s-left> <esc><s-left>
+nmap <s-right> gt
+imap <s-right> <esc><s-right>
+
+vnoremap <silent> * :call VisualSelection('f', '')<cr>
+vnoremap <silent> # :call VisualSelection('b', '')<cr>
+
+"inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
+
+let g:airline_theme='wombat'
+let g:airline#extensions#tagbar#enabled = 1
+
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
+"set background=dark
+"colorscheme solarized
+
+
+autocmd! BufWritePost .vimrc source ~/.vimrc
+
+autocmd! BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe ("norm '\"") | else | exe "norm $" | endif | endif
+
+autocmd! FileType Makefile set noexpandtab
+
+autocmd! BufWritePost * call ModeChange()
+
+if &binary
+augroup Binary
+    autocmd!
+    autocmd BufReadPre * let &bin=1
+    autocmd BufReadPost * if &bin | %!xxd -c 32
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &bin | %!xxd -r -c 32
+    autocmd BufWritePre * endif
+    autocmd BufWritePost * if &bin | %!xxd -c 32
+    autocmd BufWritePost * set nomod | endif
+augroup END
+endif
+
+function! ModeChange()
+    if getline(1) =~ "^#!"
+        if getline(1) =~ "/bin/"
+            silent !chmod a+x <afile>
+        endif
+    endif
+endfunction
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+"function! EvaluateStatusLine()
+    "let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
+    "return status
+"endfunction
+
 
 map ё `
 map й q
@@ -163,141 +236,3 @@ map Т N
 map Ь M
 map Б <
 map Ю >
-
-
-inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
-
-
-nmap <f2> :w<cr>
-vmap <f2> <esc><f2>
-imap <f2> <esc><f2>i
-
-
-nmap <f10> :q<cr>
-vmap <f10> <esc><f10>
-imap <f10> <esc><f10>
-
-nmap <s-f10> :wq<cr>
-vmap <s-f10> <esc><s-f10>
-imap <s-f10> <esc><s-f10>
-
-nmap <c-f10> :q!<cr>
-vmap <c-f10> <esc><c-f10>
-imap <c-f10> <esc><c-f10>
-
-
-nmap <c-t> :tabnew<cr>
-imap <c-t> <esc><c-t>
-
-"nmap <c-s-tab> :tabN<cr>
-"imap <c-s-tab> <esc><c-s-tab>
-nmap <s-left> gT
-imap <s-left> <esc><s-left>
-
-"nmap <c-tab> :tabn<cr>
-"imap <c-tab> <esc><c-tab>
-nmap <s-right> gt
-imap <s-right> <esc><s-right>
-
-
-menu Encoding.cp1251   :e ++enc=cp1251<cr>
-menu Encoding.cp866    :e ++enc=cp866<cr>
-menu Encoding.koi8-r   :e ++enc=koi8-r<cr>
-menu Encoding.utf-8    :e ++enc=utf-8<cr>
-nmap <s-f8> :emenu Encoding.<tab>
-vmap <s-f8> <esc><s-f8>
-imap <s-f8> <esc><s-f8>
-
-menu FileEncoding.utf-8    :set fileencoding=utf-8<cr>
-menu FileEncoding.cp1251   :set fileencoding=cp1251<cr>
-menu FileEncoding.cp866    :set fileencoding=cp866<cr>
-menu FileEncoding.koi8-r   :set fileencoding=koi8-r<cr>
-nmap <c-f8> :emenu FileEncoding.<tab>
-vmap <c-f8> <esc><c-f8>
-imap <c-f8> <esc><c-f8>
-
-"nmap <f8> :call EncodingToggle()<cr>
-nmap <f8> :echo &fileencoding<cr>
-vmap <f8> <esc><s-f8>
-imap <f8> <esc><s-f8>
-
-
-"function EncodingToggle()
-"    if &fileencoding == 'cp1251'
-"        :e ++enc=utf-8
-"    else
-"        :e ++enc=cp1251
-"    endif
-"endfunction
-
-function ModeChange()
-    if getline(1) =~ "^#!"
-        if getline(1) =~ "/bin/"
-            silent !chmod a+x <afile>
-        endif
-    endif
-endfunction
-au BufWritePost * call ModeChange()
-
-
-imap {<cr> {<cr>}<esc>O
-"imap {{{<cr> {{{<cr>}}}<esc>O
-"imap { {}
-"imap ( ()
-
-imap <c-space> <c-x><c-u>
-imap <c-m-space> <c-x><c-o>
-imap <m-space> <c-n>
-
-
-set nospell
-set spelllang=ru,en
-
-"nmap <f7> :call SpellToggle()<cr>
-nmap <f7> :set spell!<cr>
-vmap <f7> <esc><s-f7>
-imap <f7> <esc><s-f7>
-
-"function SpellToggle()
-"    if &spell == 1
-"        :setlocal nospell
-"    else
-"        :setlocal spell
-"    endif
-"endfunction
-
-
-"set fileformat=unix
-
-
-if &binary
-augroup Binary
-    au!
-    au BufReadPre * let &bin=1
-    au BufReadPost * if &bin | %!xxd -c 32
-    au BufReadPost * set ft=xxd | endif
-    au BufWritePre * if &bin | %!xxd -r -c 32
-    au BufWritePre * endif
-    au BufWritePost * if &bin | %!xxd -c 32
-    au BufWritePost * set nomod | endif
-augroup END
-endif
-
-
-function F5()
-    echo &filetype
-    if &filetype == 'xml'
-        "silent !firefox -chrome "%"
-        !firefox -chrome "%"
-    endif
-endfunction
-
-nmap <f5> :call F5()<cr>
-vmap <f5> <esc><s-f5>
-imap <f5> <esc><s-f5>
-
-
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
-let g:airline_theme='wombat'
