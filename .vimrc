@@ -11,7 +11,7 @@ set nocompatible
 
 set history=1000
 
-colorscheme default             "desert256 inkpot gardener peaksea
+colorscheme solarized
 set t_Co=256
 set background=light
 
@@ -37,11 +37,6 @@ set nomodeline
 set laststatus=2                "always
 "set statusline=%!EvaluateStatusLine()
 "set ruler                       "показывать текущую позицию
-
-"function EvaluateStatusLine()
-    "let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
-    "return status
-"endfunction
 
 set scrolloff=3
 set sidescroll=1
@@ -97,16 +92,7 @@ vnoremap <silent> # :call VisualSelection('b', '')<cr>
 
 "inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
 
-let g:airline_theme='wombat'
-let g:airline#extensions#tagbar#enabled = 1
-
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-"set background=dark
-"colorscheme solarized
-
+let g:airline_theme='bubblegum'
 
 autocmd! BufWritePost .vimrc source ~/.vimrc
 

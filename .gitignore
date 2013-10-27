@@ -11,5 +11,7 @@
 !/.osx
 !/.ubuntu.sh
 !/.is/
+!/oh-my-zsh
+!/.zsh
 !/README
 /.vim/.netrwhist

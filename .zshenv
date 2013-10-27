@@ -17,9 +17,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 #alias grep='grep --exclude="*.svn*"'
 
-alias dl='trash_path=$(date +$HOME/trash/%Y.%m.%d/%H.%M.%S.%N/) && mkdir -p $trash_path && mv -t $trash_path'
-
-if [ -f /usr/bin/grc ]; then
+if [[ (-f /usr/bin/grc) || (-f /usr/local/bin/grc) ]]; then
     alias ping="grc --colour=auto ping"
     alias traceroute="grc --colour=auto traceroute"
     alias make="grc --colour=auto make"
@@ -45,10 +43,5 @@ alias vim='vim -p'
 
 alias su='sudo su -m'
 
-alias dch='debchange --distributor=Debian --release-heuristic changelog'
-alias release='dch --release && debcommit -m 'release' && debuild && debrelease && debclean'
-
 alias gti="git"
 alias gi="git"
-
-alias jsdoc="~/node_modules/jsdoc/app/run.js"
