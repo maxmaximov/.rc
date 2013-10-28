@@ -31,3 +31,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".zsh/themes/3827269"]
+	path = .zsh/themes/3827269
+	url = https://gist.github.com/3827269.git
