@@ -8,7 +8,7 @@ DEFAULT_USER=maxmaximov
 plugins=(git bower brew command-not-found cloudapp git-extras jira node npm nyan osx web-search)
 
 CASE_SENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
