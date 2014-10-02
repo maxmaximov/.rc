@@ -45,3 +45,5 @@ alias su='sudo su -m'
 
 alias gti="git"
 alias gi="git"
+
+alias fuck='sudo $(fc -ln -1)'
