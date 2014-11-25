@@ -15,5 +15,6 @@ source $ZSH/oh-my-zsh.sh
 JIRA_URL="https://jira.yandex-team.ru"
 setopt no_beep
 
-# added by travis gem
-[ -f /Users/maxmaximov/.travis/travis.sh ] && source /Users/maxmaximov/.travis/travis.sh
+if [ -f /Users/maxmaximov/.travis/travis.sh ]; then
+    source /Users/maxmaximov/.travis/travis.sh
+fi
