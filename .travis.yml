@@ -13,3 +13,4 @@ script:
  - zsh -n .zshenv
  - zsh -n .zshrc
  - git config --list -f .gitconfig > /dev/null
+ - ssh -T git@github.com 2>&1 | grep 'successfully authenticated'
