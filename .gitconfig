@@ -25,6 +25,10 @@
     tadd = add
     undo = reset --soft HEAD^
     s = status -s
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    me = merge --no-commit --no-ff
+    pu = pull --no-commit --rebase
+    re = revert --no-commit
 
 [color]
     ui = auto
