@@ -47,3 +47,5 @@ alias gti="git"
 alias gi="git"
 
 alias fuck='sudo $(fc -ln -1)'
+
+export NODE_ENV=development
