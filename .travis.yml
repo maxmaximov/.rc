@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+- '0.10'
+install: echo Hola!
+script: zsh -n .zshenv && zsh -n .zshrc && git config --list -f .gitconfig
