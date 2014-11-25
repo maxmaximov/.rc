@@ -1,9 +1,12 @@
+os:
+ - linux
+ - osx
 language: node_js
 node_js:
  - '0.10'
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq zsh
+ - sudo apt-get update -qq || brew update
+ - sudo apt-get install -qq zsh || brew install zsh
 install:
  - echo Hola!
 script:
