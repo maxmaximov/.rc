@@ -13,5 +13,5 @@ cp -r rc/.git .
 rm -rf rc
 git checkout .
 chown -R maxmaximov:maxmaximov /home/maxmaximov
-chsh -s /bin/zsh maxmaximov
+chsh -s $(which zsh) maxmaximov
 cd -
