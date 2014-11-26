@@ -10,14 +10,15 @@ install:
 	@mkdir -p $(DESTDIR)/.ssh
 	@mkdir -p $(DESTDIR)/.subversion
 	@mkdir -p $(DESTDIR)/.vim
+	@ln -sf $(CURDIR)/git/gitconfig $(DESTDIR)/.gitconfig
 	@ln -sf $(CURDIR)/ssh/config $(DESTDIR)/.ssh
 	@ln -sf $(CURDIR)/subversion/config $(DESTDIR)/.subversion
-	@ln -sF $(CURDIR)/vim/bundle $(DESTDIR)/.vim/bundle
+	@rm -rf $(DESTDIR)/.vim/bundle
+	@ln -sf $(CURDIR)/vim/bundle $(DESTDIR)/.vim/bundle
 	@ln -sf $(CURDIR)/vim/filetype.vim $(DESTDIR)/.vim/filetype.vim
-	@ln -sf $(CURDIR)/gitconfig $(DESTDIR)/.gitconfig
-	@ln -sf $(CURDIR)/vimrc $(DESTDIR)/.vimrc
-	@ln -sf $(CURDIR)/zshenv $(DESTDIR)/.zshenv
-	@ln -sf $(CURDIR)/zshrc $(DESTDIR)/.zshrc
+	@ln -sf $(CURDIR)/vim/vimrc $(DESTDIR)/.vimrc
+	@ln -sf $(CURDIR)/zsh/zshenv $(DESTDIR)/.zshenv
+	@ln -sf $(CURDIR)/zsh/zshrc $(DESTDIR)/.zshrc
 
 test:
 	@echo Testing zshenv...
