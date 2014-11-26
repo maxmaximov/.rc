@@ -2,11 +2,15 @@ ifndef DESTDIR
 export DESTDIR = ~
 endif
 
+export RCDIR = $(DESTDIR)/..rc
+
 build:
 	@git submodule init
 	@git submodule update
 
 install:
+	@rm -rf $(RCDIR)
+	@ln -s $(CURDIR) $(RCDIR)
 	@mkdir -p $(DESTDIR)/.ssh
 	@mkdir -p $(DESTDIR)/.subversion
 	@mkdir -p $(DESTDIR)/.vim
