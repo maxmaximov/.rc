@@ -11,7 +11,6 @@ install:
 	@ln -sF ~/rc/.vim/bundle ~/.vim/bundle
 	@ln -sf ~/rc/.vim/filetype.vim ~/.vim/filetype.vim
 	@ln -sf ~/rc/.gitconfig ~
-	@ln -sf ~/rc/.npmrc ~
 	@ln -sf ~/rc/.vimrc ~
 	@ln -sf ~/rc/.zshenv ~
 	@ln -sf ~/rc/.zshrc ~
