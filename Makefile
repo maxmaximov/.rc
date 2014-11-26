@@ -9,6 +9,7 @@ build:
 	@git submodule update
 
 install:
+	@chmod 400 ssh/config
 	@rm -rf $(RCDIR)
 	@ln -s $(CURDIR) $(RCDIR)
 	@mkdir -p $(DESTDIR)/.ssh
