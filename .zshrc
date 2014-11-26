@@ -1,5 +1,5 @@
-ZSH=$HOME/oh-my-zsh
-ZSH_CUSTOM=$HOME/.zsh
+ZSH=$HOME/rc/oh-my-zsh
+ZSH_CUSTOM=$HOME/rc/.zsh
 
 ZSH_THEME="agnoster-light"
 
