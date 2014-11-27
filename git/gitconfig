@@ -11,7 +11,7 @@
     di = diff --word-diff=color
     ci = commit
     up = remote update
-    br = branch
+    br = branch -vv
     tco = checkout
     tst = status
     tdi = diff --word-diff=color
