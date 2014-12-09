@@ -12,7 +12,7 @@ alias l='ls -F'
 alias ll='ls -F -h -l'
 alias la='ls -A -F -h -l'
 
-alias grep='grep --color=auto --exclude-dir node_modules'
+alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 #alias grep='grep --exclude="*.svn*"'
