@@ -6,7 +6,7 @@ export RCDIR = $(DESTDIR)/..rc
 
 build:
 	@git submodule init
-	@git submodule update
+	@git submodule update --init --recursive
 
 install:
 	@chmod 400 ssh/config
