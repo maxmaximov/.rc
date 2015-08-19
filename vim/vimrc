@@ -42,9 +42,9 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=5
 
-set tabstop=4
-set shiftwidth=4                "колличество пробелов при сдвиге блока
-set softtabstop=4               "колличество пробелов в табе
+set tabstop=2
+set shiftwidth=2                "колличество пробелов при сдвиге блока
+set softtabstop=2               "колличество пробелов в табе
 set expandtab                   "вставлять пробелы, а не табы
 
 set autoindent
