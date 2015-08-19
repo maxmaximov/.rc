@@ -5,14 +5,13 @@ ZSH_THEME="agnoster-light"
 
 DEFAULT_USER=maxmaximov
 
-plugins=(git bower brew command-not-found cloudapp git-extras jira node npm nyan osx web-search)
+plugins=(git bower brew command-not-found cloudapp git-extras node npm nyan osx web-search brew-cask)
 
 CASE_SENSITIVE="true"
 #COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
-JIRA_URL="https://jira.yandex-team.ru"
 setopt no_beep
 
 if [ -f /Users/maxmaximov/.travis/travis.sh ]; then
