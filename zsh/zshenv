@@ -40,6 +40,7 @@ alias df='df -h'
 alias du='du -h'
 
 alias vim='vim -p'
+alias vi='vi -p'
 
 alias su='sudo su -m'
 
@@ -49,3 +50,4 @@ alias gi="git"
 alias fuck='sudo $(fc -ln -1)'
 
 export NODE_ENV=development
+export NVM_DIR=~/.nvm

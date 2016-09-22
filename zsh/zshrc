@@ -17,3 +17,5 @@ setopt no_beep
 if [ -f /Users/maxmaximov/.travis/travis.sh ]; then
     source /Users/maxmaximov/.travis/travis.sh
 fi
+
+source $(brew --prefix nvm)/nvm.sh

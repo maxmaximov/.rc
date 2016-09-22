@@ -4,57 +4,58 @@
 
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    ;pager=diff-so-fancy | less --tabs=4 -RFX
+    ;pager=diff-so-fancy | less
+    pager=/usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [alias]
     co = checkout
     st = status
-    di = diff --word-diff=color
+    di = diff --word-diff=color --compaction-heuristic
     ci = commit
     up = remote update
     br = branch -vv
-    tco = checkout
-    tst = status
-    tdi = diff --word-diff=color
-    tci = commit
-    tup = remote update
-    tbr = branch
-    tlog = log
-    tpush = push
-    tpull = pull
-    tmerge = merge
-    tadd = add
+    bra = branch -vv -a
     undo = reset --soft HEAD^
+    undoo = reset --hard
     s = status -s
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     me = merge --no-commit --no-ff
     pu = pull --no-commit --rebase
     re = revert --no-commit
+    rb = rebase -i --autosquash
+    fx = commit --fixup
+    cp = cherry-pick
+    standup = log --since=24.hours --author=max.maximov
 
-[color]
-    ui = auto
+;[color]
+    ;ui = auto
 
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+;[color "branch"]
+    ;current = yellow reverse
+    ;local = yellow
+    ;remote = green
 
-[color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+;[color "diff"]
+    ;meta = yellow bold
+    ;frag = magenta bold
+    ;old = red bold
+    ;new = green bold
+    ;whitespace = red reverse
 
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+;[color "status"]
+    ;added = yellow
+    ;changed = green
+    ;untracked = cyan
 
 [push]
     default = tracking
 
 [diff]
     tool = Kaleidoscope
+
+[diff "plist"]
+    textconv = "plutil -convert xml1 -o -"
 
 [difftool]
     prompt = false

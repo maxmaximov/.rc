@@ -15,7 +15,9 @@ install:
 	@mkdir -p $(DESTDIR)/.ssh
 	@mkdir -p $(DESTDIR)/.subversion
 	@mkdir -p $(DESTDIR)/.vim
+	@mkdir -p $(DESTDIR)/.config/git
 	@ln -sf $(CURDIR)/git/gitconfig $(DESTDIR)/.gitconfig
+	@ln -sf $(CURDIR)/git/attributes $(DESTDIR)/.config/git/attributes
 	@ln -sf $(CURDIR)/ssh/config $(DESTDIR)/.ssh
 	@ln -sf $(CURDIR)/subversion/config $(DESTDIR)/.subversion
 	@rm -rf $(DESTDIR)/.vim/bundle

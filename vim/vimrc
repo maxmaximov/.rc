@@ -60,7 +60,8 @@ set foldenable
 "set foldmethod=syntax           "indent
 "set foldclose=all
 
-set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
+"set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
+set list listchars=trail:‧,extends:▸,precedes:◂
 
 set wildmenu
 
@@ -79,6 +80,7 @@ let g:mapleader=","
 nmap ; :
 
 nmap <leader>p :set invpaste<cr>
+nmap <cr> :TernDef<cr>
 
 nmap <c-t> :tabnew<cr>
 imap <c-t> <esc><c-t>
@@ -93,6 +95,17 @@ vnoremap <silent> # :call VisualSelection('b', '')<cr>
 "inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
 
 let g:airline_theme='bubblegum'
+"let g:airline#extensions#tabline#enabled = 1
+
+"let g:syntastic_auto_loc_list = 1   " Открываем и закрываем список с ошибками автоматически.
+let g:syntastic_enable_signs = 1    " красные метки на линиях
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_jump=0         " Не перескакиваем на ошибку автоматически"
+let g:syntastic_javascript_checkers = ['eslint']
+
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
 
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
@@ -154,7 +167,6 @@ endfunction
     "let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
     "return status
 "endfunction
-
 
 map ё `
 map й q
