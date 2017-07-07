@@ -1,3 +1,5 @@
+;https://hackernoon.com/lesser-known-git-commands-151a1918a60
+
 [user]
     name = Max Maximov
     email = max.maximov@gmail.com
@@ -10,16 +12,18 @@
 
 [alias]
     co = checkout
-    st = status
-    di = diff --word-diff=color --compaction-heuristic
+    st = status --short --branch
+    s = status -s
+    ;di = diff --word-diff=color --compaction-heuristic
+    di = diff --word-diff=color --indent-heuristic
     ci = commit
     up = remote update
     br = branch -vv
     bra = branch -vv -a
     undo = reset --soft HEAD^
     undoo = reset --hard
-    s = status -s
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    grog = log --graph --abbrev-commit --decorate --all
     me = merge --no-commit --no-ff
     pu = pull --no-commit --rebase
     re = revert --no-commit
@@ -27,6 +31,11 @@
     fx = commit --fixup
     cp = cherry-pick
     standup = log --since=24.hours --author=max.maximov
+    please = push --force-with-lease
+    commend = commit --amend --no-edit
+    it = !git init && git commit -m “root” --allow-empty
+    stsh = stash --keep-index
+    staash = stash --include-untracked
 
 ;[color]
     ;ui = auto
