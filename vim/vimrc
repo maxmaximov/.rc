@@ -80,7 +80,6 @@ let g:mapleader=","
 nmap ; :
 
 nmap <leader>p :set invpaste<cr>
-"nmap <cr> :TernDef<cr>
 nmap <cr> :ALEGoToDefinition<cr>
 nmap <leader><cr> :ALEGoToDefinitionInTab<cr>
 
