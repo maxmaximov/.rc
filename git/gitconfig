@@ -36,6 +36,7 @@
     it = !git init && git commit -m “root” --allow-empty
     stsh = stash --keep-index
     staash = stash --include-untracked
+    thanks = blame
 
 ;[color]
     ;ui = auto
@@ -80,3 +81,6 @@
 
 [mergetool "Kaleidoscope"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+
+[help]
+  autocorrect = 1
