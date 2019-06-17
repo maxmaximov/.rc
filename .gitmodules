@@ -40,3 +40,6 @@
 [submodule "vim/bundle/ale"]
 	path = vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "vim/bundle/vim-plist"]
+	path = vim/bundle/vim-plist
+	url = git@github.com:darfink/vim-plist.git
