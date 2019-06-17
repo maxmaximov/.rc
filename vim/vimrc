@@ -60,8 +60,8 @@ set foldenable
 "set foldmethod=syntax           "indent
 "set foldclose=all
 
-"set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
-set list listchars=trail:‧,extends:▸,precedes:◂
+set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
+"set list listchars=trail:‧,extends:▸,precedes:◂
 
 set wildmenu
 
