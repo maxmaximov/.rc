@@ -35,8 +35,6 @@ set showtabline=2
 set nomodeline
 
 set laststatus=2                "always
-"set statusline=%!EvaluateStatusLine()
-"set ruler                       "показывать текущую позицию
 
 set scrolloff=3
 set sidescroll=1
@@ -57,11 +55,8 @@ set smartcase
 set nowrapscan
 
 set foldenable
-"set foldmethod=syntax           "indent
-"set foldclose=all
 
 set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
-"set list listchars=trail:‧,extends:▸,precedes:◂
 
 set wildmenu
 
@@ -94,19 +89,13 @@ imap <s-right> <esc><s-right>
 vnoremap <silent> * :call VisualSelection('f', '')<cr>
 vnoremap <silent> # :call VisualSelection('b', '')<cr>
 
-"inoremap <silent> <c-u> <esc>u:set paste<cr>.:set nopaste<cr>gi
-
 let g:airline_theme='bubblegum'
-"let g:airline#extensions#tabline#enabled = 1
 
 let g:ale_completion_enabled = 1
-"let g:ale_lint_on_text_changed = 'never'
 " We need this to disable jshint
 let b:ale_linters = {'javascript': ['eslint', 'flow', 'jscs', 'prettier', 'prettier-eslint', 'prettier-standard', 'standard', 'tsserver', 'xo']}
 
 set completeopt=menu,menuone,noinsert
-
-"let g:flow#autoclose = 1
 
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
@@ -163,11 +152,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
-"function! EvaluateStatusLine()
-    "let status = '%<%F %h%m%r[%{&filetype}][%{&fileencoding}][%{&fileformat}]%=%l/%L,%c%V 0x%B,%b %{&encoding}'
-    "return status
-"endfunction
 
 map ё `
 map й q
