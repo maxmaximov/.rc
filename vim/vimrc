@@ -69,6 +69,8 @@ set fileencodings=utf-8,cp1251
 
 set gdefault                    "always global regex
 
+set completeopt-=preview
+
 let mapleader=","
 let g:mapleader=","
 
