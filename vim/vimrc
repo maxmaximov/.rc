@@ -95,8 +95,6 @@ let g:ale_completion_enabled = 1
 " We need this to disable jshint
 let b:ale_linters = {'javascript': ['eslint', 'flow', 'jscs', 'prettier', 'prettier-eslint', 'prettier-standard', 'standard', 'tsserver', 'xo']}
 
-set completeopt=menu,menuone,noinsert
-
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
 autocmd! BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe ("norm '\"") | else | exe "norm $" | endif | endif
@@ -104,19 +102,6 @@ autocmd! BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe ("
 autocmd! FileType Makefile set noexpandtab
 
 autocmd! BufWritePost * call ModeChange()
-
-if &binary
-augroup Binary
-    autocmd!
-    autocmd BufReadPre * let &bin=1
-    autocmd BufReadPost * if &bin | %!xxd -c 32
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &bin | %!xxd -r -c 32
-    autocmd BufWritePre * endif
-    autocmd BufWritePost * if &bin | %!xxd -c 32
-    autocmd BufWritePost * set nomod | endif
-augroup END
-endif
 
 function! ModeChange()
     if getline(1) =~ "^#!"
