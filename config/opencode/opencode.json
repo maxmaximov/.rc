@@ -1,0 +1,73 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "Claude Opus 4.5",
+  "instructions": [".opencode/instructions.md"],
+  "provider": {
+    "jb_litellm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "JB LiteLLM",
+      "options": {
+        "baseURL": "https://litellm.labs.jb.gg/",
+        "apiKey": "{env:OPENCODE_JB_LITELLM_API_KEY}"
+      },
+      "models": {
+        "openai/gpt-5.3-codex": {
+          "name": "GPT-5.3 Codex"
+        },
+        "anthropic/claude-opus-4-6": {
+          "name": "Claude Opus 4.6"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "youtrack": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://youtrack.jetbrains.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:OPENCODE_YOUTRACK_API_KEY}"
+      }
+    },
+    "teamcity": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "@daghis/teamcity-mcp"],
+      //"command": ["node", "/Users/maxmaximov/jb/teamcity-mcp/dist/index.js"],
+      "environment": {
+        "TEAMCITY_URL": "https://buildserver.labs.intellij.net",
+        "TEAMCITY_TOKEN": "{env:OPENCODE_TEAMCITY_TOKEN}",
+        "MCP_MODE": "full"
+      }
+    },
+    "github": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:OPENCODE_GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "playwright": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"]
+    },
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:OPENCODE_CONTEXT7_API_KEY}"
+      }
+    },
+    "mise": {
+      "enabled": true,
+      "type": "local",
+      "command": ["mise", "mcp"],
+      "environment": {
+        "MISE_EXPERIMENTAL": "1"
+      }
+    }
+  }
+}

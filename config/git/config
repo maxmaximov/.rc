@@ -1,0 +1,93 @@
+;https://hackernoon.com/lesser-known-git-commands-151a1918a60
+
+[user]
+    name = Max Maximov
+    email = max.maximov@gmail.com
+
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = delta
+
+[init]
+    defaultBranch = main
+
+[pull]
+    ff = only
+
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+
+[rebase]
+    autoStash = true
+    updateRefs = true
+
+[merge]
+    conflictStyle = zdiff3
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    external = difft
+
+[diff "plist"]
+    textconv = "plutil -convert xml1 -o -"
+
+[help]
+    autocorrect = 1
+
+[alias]
+    co = checkout
+    st = status --short --branch
+    s = status -s
+    ;di = diff --word-diff=color --compaction-heuristic
+    di = diff --word-diff=color --indent-heuristic
+    ci = commit
+    up = remote update
+    br = branch -vv
+    bra = branch -vv -a
+    undo = reset --soft HEAD^
+    undoo = reset --hard
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    grog = log --graph --abbrev-commit --decorate --all
+    me = merge --no-commit --no-ff
+    pu = pull --no-commit --rebase
+    re = revert --no-commit
+    rb = rebase -i --autosquash
+    fx = commit --fixup
+    cp = cherry-pick
+    standup = log --since=24.hours --author=max.maximov
+    please = push --force-with-lease
+    commend = commit --amend --no-edit
+    cia = commit --amend --no-edit
+    it = !git init && git commit -m "root" --allow-empty
+    stsh = stash --keep-index
+    staash = stash --include-untracked
+    thanks = blame
+    # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = gruvbox-dark
+    paging = always
+    pager = less -R -c -+F -+X
