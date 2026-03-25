@@ -83,26 +83,6 @@ zstyle ':completion:*:default' list-colors \
 
 setopt no_beep
 
-export NODE_ENV=development
-export NVM_DIR="$HOME/.nvm"
-
-# nvm lazy-load to avoid startup penalty on every shell launch
-if [[ -s "/opt/homebrew/opt/nvm/nvm.sh" ]]; then
-  export NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
-elif [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
-  export NVM_SH="/usr/local/opt/nvm/nvm.sh"
-fi
-
-_lazy_load_nvm() {
-  unset -f nvm node npm npx
-  [[ -n "${NVM_SH:-}" && -s "$NVM_SH" ]] && source "$NVM_SH"
-}
-
-nvm()  { _lazy_load_nvm; nvm "$@"; }
-node() { _lazy_load_nvm; node "$@"; }
-npm()  { _lazy_load_nvm; npm "$@"; }
-npx()  { _lazy_load_nvm; npx "$@"; }
-
 if [[ -e "$HOME/.env" ]]; then # -e works for 1Password's mounted FIFO, not just regular files
   set -a # auto-export variables loaded from the mounted .env file
   source "$HOME/.env"
