@@ -1,10 +1,6 @@
-# .rc [![Build Status](https://secure.travis-ci.org/maxmaximov/.rc.svg?branch=master)](http://travis-ci.org/maxmaximov/.rc)
-```bash
-git clone git@github.com:maxmaximov/.rc.git
-make -C .rc
-make -C .rc install
-source .zshenv .zshrc
-```
-```bash
-git clone git@github.com:maxmaximov/.rc.git && make -C .rc && make -C .rc install && source .zshenv .zshrc
-```
+# .rc
+
+This repository is under construction.
+
+The old bootstrap instructions were removed because they no longer match the
+current layout or setup flow.
