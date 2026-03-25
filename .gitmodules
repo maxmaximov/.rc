@@ -26,3 +26,6 @@
 [submodule "config/vim/pack/bundle/start/gruvbox-material"]
 	path = config/vim/pack/bundle/start/gruvbox-material
 	url = https://github.com/sainnhe/gruvbox-material.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot.git

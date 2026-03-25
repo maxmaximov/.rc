@@ -1,0 +1,36 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- create:
+    - ~/.config
+    - ~/.cache
+    - ~/.local/share
+    - ~/.local/state
+    - ~/.ssh
+    - ~/.1password
+
+- shell:
+    - [chmod 700 ~/.ssh ~/.1password, Set private directory permissions]
+
+- link:
+    ~/.config/1Password: config/1Password
+    ~/.config/AGENTS.md: config/AGENTS.md
+    ~/.config/PROFILE.md: config/PROFILE.md
+    ~/.config/bat: config/bat
+    ~/.config/ghostty: config/ghostty
+    ~/.config/git: config/git
+    ~/.config/mise: config/mise
+    ~/.config/nvim: config/nvim
+    ~/.config/oh-my-posh: config/oh-my-posh
+    ~/.config/opencode: config/opencode
+    ~/.config/vim: config/vim
+    ~/.config/zsh: config/zsh
+
+    ~/.zshenv: config/zsh/.zshenv
+
+    ~/.ssh/config: config/ssh/config
+    ~/.ssh/id_ed25519.pub: config/ssh/id_ed25519.pub
+
+    ~/.1password/agent.sock: /Users/maxmaximov/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
