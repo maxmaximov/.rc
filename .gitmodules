@@ -29,3 +29,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot.git
+[submodule "dotbot-plugins/dotbot-brewfile"]
+	path = dotbot-plugins/dotbot-brewfile
+	url = https://github.com/sobolevn/dotbot-brewfile.git
