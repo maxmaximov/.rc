@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTBOT="$DOTFILES_DIR/dotbot/bin/dotbot"
+
+if ! xcode-select -p >/dev/null 2>&1; then
+  xcode-select --install || true
+  echo "Finish Xcode Command Line Tools installation, then rerun ./install." >&2
+  exit 1
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+git -C "$DOTFILES_DIR" submodule update --init --recursive
+
+"$DOTBOT" -d "$DOTFILES_DIR" --plugin-dir "$DOTFILES_DIR/dotbot-plugins/dotbot-brewfile" -c "$DOTFILES_DIR/install.conf.yaml" "$@"
