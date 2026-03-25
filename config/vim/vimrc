@@ -1,0 +1,284 @@
+syntax on
+set regexpengine=0             "use new regular expression engine https://jameschambers.co.uk/vim-typescript-slow
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set nocompatible
+
+set history=1000
+
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_foreground = 'original'
+let g:gruvbox_material_statusline_style = 'original'
+colorscheme gruvbox-material
+"colorscheme catppuccin_frappe
+"colorscheme catppuccin_macchiato
+"colorscheme catppuccin_mocha
+"colorscheme rosepine
+"colorscheme rosepine_moon
+"colorscheme molokai
+set background=dark
+set termguicolors
+"set notermguicolors
+
+set signcolumn=yes
+
+set noerrorbells
+set novisualbell
+
+set nowrap
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,<,>,~,[,]
+
+set autoread
+
+set showmatch                   "подсвечивать парные скобки, кавычки
+set matchpairs+=<:>             "(:),{:},[:],<:>
+
+set nonumber                    "нумерация строк
+set showcmd
+set cmdheight=1                 "высота командной строки
+set notitle                     "отображать имя файла
+set showtabline=2
+set nomodeline
+
+set laststatus=2                "always
+
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=5
+
+set tabstop=2
+set shiftwidth=2                "колличество пробелов при сдвиге блока
+set softtabstop=2               "колличество пробелов в табе
+set expandtab                   "вставлять пробелы, а не табы
+
+set autoindent
+set smartindent
+
+set hlsearch                    "подсвечивать найденные фрагменты
+set incsearch                   "при поиске перескакивать на найденный текст в процессе набора строки
+set ignorecase                  "игнорировать прописные/строчные при поиске
+set smartcase
+set nowrapscan
+
+set foldenable
+
+"set list listchars=tab:▹‧,trail:‧,extends:▸,precedes:◂
+
+set wildmenu
+
+set nobackup
+set noswapfile
+
+set encoding=utf-8 nobomb
+"set termencoding=utf-8
+set fileencodings=utf-8,cp1251
+
+set gdefault                    "always global regex
+
+set completeopt-=preview
+
+let mapleader=","
+let g:mapleader=","
+
+nmap ; :
+
+nmap <leader>p :set invpaste<cr>
+
+"nmap <cr> :ALEGoToDefinition<cr>
+"nmap <leader><cr> :ALEGoToDefinition -tab<cr>
+"nmap <space> :ALEHover<cr>
+"nmap <leader><space> :ALEFindReferences<cr>
+
+nmap <c-t> :tabnew<cr>
+imap <c-t> <esc><c-t>
+nmap <s-left> gT
+imap <s-left> <esc><s-left>
+nmap <s-right> gt
+imap <s-right> <esc><s-right>
+
+vnoremap <silent> * :call VisualSelection('f', '')<cr>
+"vnoremap <silent> # :call VisualSelection('b', '')<cr>
+
+"let g:airline_theme='bubblegum'
+"let g:airline_theme='base16_tomorrow'
+"let g:airline_theme='base16_gruvbox_dark_medium'
+
+"let g:ale_completion_enabled = 1
+" We need this to disable jshint
+"let b:ale_linters = {'javascript': ['eslint', 'flow', 'jscs', 'prettier', 'prettier-eslint', 'prettier-standard', 'standard', 'tsserver', 'xo']}
+
+
+" https://github.com/neoclide/coc.nvim?tab=readme-ov-file#example-vim-configuration
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> <cr> <Plug>(coc-definition)
+nmap <silent> <leader><cr> :call CocAction('jumpDefinition', 'tabe')<cr>
+nmap <silent> <space> :call CocActionAsync('doHover')<cr>
+nmap <silent> <leader><space> :call CocAction('jumpTypeDefinition', 'tabe')<cr>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+
+if !has('nvim')
+  "highlight clear SpellBad
+  "highlight SpellBad cterm=underline,bold ctermfg=red ctermbg=NONE
+  highlight CocUnderline cterm=underline gui=underline
+  highlight CocUnusedHighlight cterm=underline gui=underline
+  highlight CocDeprecatedHighlight cterm=underline gui=underline
+  highlight CocErrorHighlight cterm=underline gui=underline
+  highlight CocWarningHighlight cterm=underline gui=underline
+  highlight CocHintHighlight cterm=underline gui=underline
+  highlight CocInfoHighlight cterm=underline gui=underline
+endif
+
+autocmd! BufWritePost vimrc source ~/.config/vim/vimrc
+
+autocmd! BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe ("norm '\"") | else | exe "norm $" | endif | endif
+
+autocmd! FileType Makefile set noexpandtab
+
+autocmd! BufWritePost * call ModeChange()
+
+function! ModeChange()
+    if getline(1) =~ "^#!"
+        if getline(1) =~ "/bin/"
+            silent !chmod a+x <afile>
+        endif
+    endif
+endfunction
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+map ё `
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Ё ~
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >

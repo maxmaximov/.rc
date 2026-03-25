@@ -1,42 +1,28 @@
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "vim/bundle/typescript-vim"]
-	path = vim/bundle/typescript-vim
-	url = git://github.com/leafgarland/typescript-vim.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/closetag.vim"]
-	path = vim/bundle/closetag.vim
-	url = git://github.com/docunext/closetag.vim.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/delimitMate"]
-	path = vim/bundle/delimitMate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule "zsh/themes/3827269"]
-	path = zsh/themes/3827269
+[submodule "config/zsh/themes/3827269"]
+	path = config/zsh/themes/3827269
 	url = https://gist.github.com/3827269.git
-[submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "vim/bundle/vim-javascript-syntax"]
-	path = vim/bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
-[submodule "vim/bundle/kotlin-vim"]
-	path = vim/bundle/kotlin-vim
-	url = https://github.com/udalov/kotlin-vim
-[submodule "vim/bundle/ale"]
-	path = vim/bundle/ale
-	url = https://github.com/w0rp/ale.git
-[submodule "vim/bundle/vim-plist"]
-	path = vim/bundle/vim-plist
-	url = git@github.com:darfink/vim-plist.git
+[submodule "config/zsh/oh-my-zsh"]
+	path = config/zsh/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "config/vim/pack/bundle/start/coc.nvim"]
+	path = config/vim/pack/bundle/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+	branch = release
+[submodule "config/vim/pack/bundle/start/delimitMate"]
+	path = config/vim/pack/bundle/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "config/vim/pack/bundle/start/nerdcommenter"]
+	path = config/vim/pack/bundle/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
+[submodule "config/vim/pack/bundle/start/vim-airline"]
+	path = config/vim/pack/bundle/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "config/vim/pack/bundle/start/vim-closetag"]
+	path = config/vim/pack/bundle/start/vim-closetag
+	url = https://github.com/alvan/vim-closetag.git
+[submodule "config/vim/pack/bundle/start/vim-polyglot"]
+	path = config/vim/pack/bundle/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "config/vim/pack/bundle/start/gruvbox-material"]
+	path = config/vim/pack/bundle/start/gruvbox-material
+	url = https://github.com/sainnhe/gruvbox-material.git

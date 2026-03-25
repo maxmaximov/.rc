@@ -1,0 +1,35 @@
+# Ghostty base config (macOS)
+
+theme = Gruvbox Dark Hard
+#theme = Gruvbox Dark
+#theme = Catppuccin Mocha
+
+# Font
+#font-family = MesloLGS Nerd Font Mono
+#font-family = Menlo
+font-family = JetBrains Mono
+font-size = 15
+adjust-cell-height = 20%
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Window
+window-padding-x = 4
+window-padding-y = 4
+window-decoration = auto
+window-save-state = always
+
+# Terminal behavior
+scrollback-limit = 200000
+mouse-hide-while-typing = true
+copy-on-select = true
+shell-integration = detect
+shell-integration-features = no-cursor,title,no-sudo,no-ssh-env,no-ssh-terminfo,path
+keybind = super+shift+left=move_tab:-1
+keybind = super+shift+right=move_tab:1
+
+# macOS
+macos-option-as-alt = left
+macos-titlebar-style = transparent
