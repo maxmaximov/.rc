@@ -69,7 +69,6 @@
     please = push --force-with-lease
     commend = commit --amend --no-edit
     cia = commit --amend --no-edit
-    it = !git init && git commit -m "root" --allow-empty
     stsh = stash --keep-index
     staash = stash --include-untracked
     thanks = blame

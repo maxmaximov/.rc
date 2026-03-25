@@ -9,10 +9,8 @@ DEFAULT_USER=maxmaximov
 plugins=(git brew macos mise)
 
 CASE_SENSITIVE="true"
-#COMPLETION_WAITING_DOTS="true"
 
 DISABLE_AUTO_UPDATE=true
-DISABLE_UPDATE_PROMPT=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,6 +36,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# https://github.com/garabik/grc
 if [[ (-f /usr/bin/grc) || (-f /usr/local/bin/grc) ]]; then
   alias ping="grc --colour=auto ping"
   alias traceroute="grc --colour=auto traceroute"
@@ -65,9 +64,7 @@ alias vi='vi -p'
 
 alias su='sudo su -m'
 
-alias gti="git"
-alias gi="git"
-
+# https://github.com/nvbn/thefuck
 alias fuck='sudo $(fc -ln -1)'
 
 # zsh completion colors (Catppuccin Mocha-ish)
