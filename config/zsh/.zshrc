@@ -83,12 +83,6 @@ zstyle ':completion:*:default' list-colors \
 
 setopt no_beep
 
-if [[ -e "$HOME/.env" ]]; then # -e works for 1Password's mounted FIFO, not just regular files
-  set -a # auto-export variables loaded from the mounted .env file
-  source "$HOME/.env"
-  set +a
-fi
-
 #eval "$(starship init zsh)"
 #eval "$(oh-my-posh --config 'catppuccin_macchiato' init zsh)"
 #eval "$(oh-my-posh --config 'gruvbox' init zsh)"
