@@ -31,7 +31,7 @@ sudo dscl . -create "/Users/$(id -un)" RealName "Max Maximov"
 sudo dscl . -create "/Users/$(id -un)" UserShell "/bin/zsh"
 
 # Set the user profile picture.
-sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.rc/avatar.jpeg"
+sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.dotfiles/avatar.jpeg"
 
 ###############################################################################
 # Language, Locale, And UI                                                    #

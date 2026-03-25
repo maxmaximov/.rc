@@ -1,4 +1,4 @@
-# .rc
+# .dotfiles
 
 This repository is under construction.
 
