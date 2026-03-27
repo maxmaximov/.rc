@@ -105,6 +105,9 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Set Dock icon size to 100 pixels.
 defaults write com.apple.dock tilesize -int 100
 
+# Set Google Chrome as the default browser.
+defaultbrowser chrome
+
 # Rebuild Dock contents to the preferred app order.
 if command -v dockutil >/dev/null 2>&1; then
   dockutil --no-restart --remove all
