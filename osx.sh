@@ -30,6 +30,9 @@ sudo dscl . -create "/Users/$(id -un)" RealName "Max Maximov"
 # Set the login shell of the current user.
 sudo dscl . -create "/Users/$(id -un)" UserShell "/bin/zsh"
 
+# Drop any embedded avatar blob so the file-based picture path wins.
+sudo dscl . -delete "/Users/$(id -un)" JPEGPhoto 2>/dev/null || true
+
 # Set the user profile picture.
 sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.dotfiles/avatar.jpeg"
 
