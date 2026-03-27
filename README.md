@@ -7,6 +7,6 @@ xcode-select --install
 Wait until the installation finishes, then run:
 
 ```bash
-git clone git@github.com:maxmaximov/.dotfiles.git ~/.dotfiles
+git clone https://github.com/maxmaximov/.dotfiles.git ~/.dotfiles
 ~/.dotfiles/install
 ```
