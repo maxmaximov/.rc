@@ -94,6 +94,20 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Set Dock icon size to 100 pixels.
 defaults write com.apple.dock tilesize -int 100
 
+# Rebuild Dock contents to the preferred app order.
+if command -v dockutil >/dev/null 2>&1; then
+  dockutil --no-restart --remove all
+  dockutil --no-restart --add "/Applications/Google Chrome.app"
+  dockutil --no-restart --add "/Applications/Telegram.app"
+  dockutil --no-restart --add "/Applications/Slack.app"
+  dockutil --no-restart --add "/System/Applications/Mail.app"
+  dockutil --no-restart --add "/System/Applications/Calendar.app"
+  dockutil --no-restart --add "/System/Applications/Reminders.app"
+  dockutil --no-restart --add "/System/Applications/Notes.app"
+  dockutil --no-restart --add "/Applications/Ghostty.app"
+  dockutil --no-restart --add "${HOME}/Downloads" --section others --view fan --display folder --sort dateadded
+fi
+
 # Use the Europe/Amsterdam time zone.
 sudo systemsetup -settimezone "Europe/Amsterdam"
 
