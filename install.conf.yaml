@@ -37,7 +37,9 @@
     ~/.ssh/config: config/ssh/config
     ~/.ssh/id_ed25519.pub: config/ssh/id_ed25519.pub
 
-    ~/.1password/agent.sock: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
+    ~/.1password/agent.sock:
+      path: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
+      ignore-missing: true
 
 - brewfile:
     file: Brewfile
