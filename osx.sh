@@ -30,11 +30,17 @@ sudo dscl . -create "/Users/$(id -un)" RealName "Max Maximov"
 # Set the login shell of the current user.
 sudo dscl . -create "/Users/$(id -un)" UserShell "/bin/zsh"
 
-# Drop any embedded avatar blob so the file-based picture path wins.
-sudo dscl . -delete "/Users/$(id -un)" JPEGPhoto 2>/dev/null || true
+# Refresh the local avatar from Gravatar.
+GRAVATAR_HASH="$(md5 -qs 'max.maximov@gmail.com')"
+curl -fsSL "https://www.gravatar.com/avatar/${GRAVATAR_HASH}?s=512&d=404" -o "${HOME}/.dotfiles/avatar.jpeg"
 
-# Set the user profile picture.
-sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.dotfiles/avatar.jpeg"
+if [[ -f "${HOME}/.dotfiles/avatar.jpeg" ]]; then
+  # Drop any embedded avatar blob so the file-based picture path wins.
+  sudo dscl . -delete "/Users/$(id -un)" JPEGPhoto 2>/dev/null || true
+
+  # Set the user profile picture.
+  sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.dotfiles/avatar.jpeg"
+fi
 
 ###############################################################################
 # Language, Locale, And UI                                                    #
