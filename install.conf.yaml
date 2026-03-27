@@ -48,5 +48,5 @@
     - [mise install, Install global mise toolchains]
     - [mise trust "$HOME/.dotfiles/config/mise", Trust dotfiles mise config]
     - [mise trust "$HOME/.config/mise", Trust linked mise config]
-    - [corepack enable, Enable Corepack]
+    - [mise exec -- corepack enable, Enable Corepack]
     - [bash "$HOME/.dotfiles/osx.sh", Apply macOS settings]
