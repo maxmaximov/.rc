@@ -13,10 +13,10 @@
     - ~/.local/share
     - ~/.local/state
     - ~/.ssh
-    - ~/.1password
 
 - shell:
-    - [chmod 700 ~/.ssh ~/.1password, Set private directory permissions]
+    - [chmod 700 ~/.ssh, Set private directory permissions]
+    - [chmod 755 ~/.config ~/.cache ~/.local ~/.local/share ~/.local/state, Set XDG directory permissions]
 
 - link:
     ~/.config/1Password: config/1Password
@@ -37,7 +37,7 @@
     ~/.ssh/config: config/ssh/config
     ~/.ssh/id_ed25519.pub: config/ssh/id_ed25519.pub
 
-    ~/.1password/agent.sock:
+    ~/.ssh/1password-agent.sock:
       path: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
       ignore-missing: true
 
@@ -45,6 +45,7 @@
     file: Brewfile
 
 - shell:
+    - [rm -rf "$HOME/.zsh_sessions" "$HOME/.zsh_history", Remove legacy zsh state files]
     - [mise install, Install global mise toolchains]
     - [mise trust "$HOME/.dotfiles/config/mise", Trust dotfiles mise config]
     - [mise trust "$HOME/.config/mise", Trust linked mise config]

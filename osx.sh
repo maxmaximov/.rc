@@ -54,9 +54,14 @@ defaults write NSGlobalDomain AppleLocale -string "en_NL"
 
 # Allow switching between Latin and non-Latin input sources with Caps Lock.
 defaults write com.apple.HIToolbox AppleCapsLockPressAndHoldToggleOff -int 0
+defaults write com.apple.HIToolbox AppleGlobalTextInputProperties -dict-add TextInputGlobalPropertyPerContextInput -int 1
+defaults write NSGlobalDomain TISRomanSwitchState -int 1
 
 # Enable tap-to-click on the trackpad.
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Show all filename extensions.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true

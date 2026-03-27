@@ -1,4 +1,4 @@
 Host *
-    IdentityAgent "~/.1password/agent.sock"
+    IdentityAgent "~/.ssh/1password-agent.sock"
     # ForwardAgent yes
     HashKnownHosts no
