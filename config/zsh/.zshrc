@@ -12,6 +12,9 @@ CASE_SENSITIVE="true"
 
 DISABLE_AUTO_UPDATE=true
 
+HISTSIZE=500000
+SAVEHIST=500000
+
 source $ZSH/oh-my-zsh.sh
 
 if ls --color -d . >/dev/null 2>&1; then
