@@ -5,12 +5,6 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTBOT="$DOTFILES_DIR/dotbot/bin/dotbot"
 
-if ! xcode-select -p >/dev/null 2>&1; then
-  xcode-select --install || true
-  echo "Finish Xcode Command Line Tools installation, then rerun ./install." >&2
-  exit 1
-fi
-
 if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
