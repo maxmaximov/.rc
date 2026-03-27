@@ -1,6 +1,8 @@
 # .dotfiles
 
-This repository is under construction.
+```bash
+git clone git@github.com:maxmaximov/.dotfiles.git ~/.dotfiles
+~/.dotfiles/install
+```
 
-The old bootstrap instructions were removed because they no longer match the
-current layout or setup flow.
+If `xcode-select --install` starts, finish it and rerun `~/.dotfiles/install`.
