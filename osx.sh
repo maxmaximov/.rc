@@ -91,8 +91,8 @@ defaults write com.apple.finder FXICloudDriveDocuments -bool true
 # Avoid creating .DS_Store files on network volumes.
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-# Set Dock icon size to 67 pixels.
-defaults write com.apple.dock tilesize -int 67
+# Set Dock icon size to 100 pixels.
+defaults write com.apple.dock tilesize -int 100
 
 # Use the Europe/Amsterdam time zone.
 sudo systemsetup -settimezone "Europe/Amsterdam"
