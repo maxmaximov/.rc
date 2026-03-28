@@ -18,7 +18,6 @@ brew "terminal-notifier"
 brew "tldr"
 brew "vim"
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
-brew "peonping/tap/peon-ping"
 
 cask "1password"
 cask "chromium"
