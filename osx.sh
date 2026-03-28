@@ -53,6 +53,10 @@ defaults write NSGlobalDomain AppleLanguages -array "en-NL" "ru-NL"
 # Use the en_NL locale.
 defaults write NSGlobalDomain AppleLocale -string "en_NL"
 
+# Switch automatically between light and dark appearance.
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+defaults delete NSGlobalDomain AppleInterfaceStyle 2>/dev/null || true
+
 # Allow switching between Latin and non-Latin input sources with Caps Lock.
 defaults write com.apple.HIToolbox AppleCapsLockPressAndHoldToggleOff -int 0
 defaults write com.apple.HIToolbox AppleGlobalTextInputProperties -dict-add TextInputGlobalPropertyPerContextInput -int 1
