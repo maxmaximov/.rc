@@ -32,8 +32,14 @@
     ~/.local/share/opencode:
       path: ~/Documents/.opencode
       ignore-missing: true
+    ~/.local/state/lesshst:
+      path: ~/Documents/.lesshst
+      ignore-missing: true
     ~/.config/vim: config/vim
     ~/.config/zsh: config/zsh
+    ~/.config/zsh/.zsh_history:
+      path: ~/Documents/.zsh_history
+      ignore-missing: true
 
     ~/.zshenv: config/zsh/.zshenv
 
@@ -58,7 +64,7 @@
     file: Brewfile
 
 - shell:
-    - [rm -rf "$HOME/.zsh_sessions" "$HOME/.zsh_history", Remove legacy zsh state files]
+    - [rm -rf "$HOME/.zsh_sessions" "$HOME/.zsh_history" "$HOME/.lesshst", Remove legacy zsh and less state files]
     - [mise install, Install global mise toolchains]
     - [mise trust "$HOME/.dotfiles/config/mise", Trust dotfiles mise config]
     - [mise trust "$HOME/.config/mise", Trust linked mise config]
