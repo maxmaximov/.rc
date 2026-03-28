@@ -29,6 +29,9 @@
     ~/.config/nvim: config/nvim
     ~/.config/oh-my-posh: config/oh-my-posh
     ~/.config/opencode: config/opencode
+    ~/.local/share/opencode:
+      path: ~/Documents/.opencode
+      ignore-missing: true
     ~/.config/vim: config/vim
     ~/.config/zsh: config/zsh
 
@@ -39,6 +42,16 @@
 
     ~/.ssh/1password-agent.sock:
       path: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
+      ignore-missing: true
+
+    ~/.codex:
+      path: ~/Documents/.codex
+      ignore-missing: true
+    ~/.claude:
+      path: ~/Documents/.claude
+      ignore-missing: true
+    ~/.claude.json:
+      path: ~/Documents/.claude.json
       ignore-missing: true
 
 - brewfile:
