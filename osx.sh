@@ -125,6 +125,14 @@ fi
 # Use the Europe/Amsterdam time zone.
 sudo systemsetup -settimezone "Europe/Amsterdam"
 
+# Keep the Mac awake on AC power, but allow normal sleep on battery.
+sudo pmset -c sleep 0
+sudo pmset -c displaysleep 10
+sudo pmset -c disksleep 0
+sudo pmset -b sleep 10
+sudo pmset -b displaysleep 10
+sudo pmset -b disksleep 10
+
 # Store iTerm2 preferences in ~/.config/iterm2.
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.config/iterm2"
 
