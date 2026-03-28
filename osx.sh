@@ -7,6 +7,7 @@ set -euo pipefail
 # `systemsetup` changes machine-level system settings such as the time zone.
 # `scutil` reads and writes system identity settings such as computer and host names.
 # `dscl` reads and writes user account attributes such as the profile picture path.
+# `launchctl` manages per-user launch agents such as tipsd.
 
 ###############################################################################
 # Computer Identity                                                           #
@@ -132,6 +133,10 @@ sudo pmset -c disksleep 0
 sudo pmset -b sleep 10
 sudo pmset -b displaysleep 10
 sudo pmset -b disksleep 10
+
+# Disable macOS Tips suggestions.
+launchctl disable "gui/$(id -u)/com.apple.tipsd"
+launchctl bootout "gui/$(id -u)/com.apple.tipsd" 2>/dev/null || true
 
 # Store iTerm2 preferences in ~/.config/iterm2.
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.config/iterm2"
