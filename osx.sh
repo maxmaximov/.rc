@@ -36,9 +36,6 @@ GRAVATAR_HASH="$(md5 -qs 'max.maximov@gmail.com')"
 curl -fsSL "https://www.gravatar.com/avatar/${GRAVATAR_HASH}?s=512&d=404" -o "${HOME}/.dotfiles/avatar.jpeg"
 
 if [[ -f "${HOME}/.dotfiles/avatar.jpeg" ]]; then
-  # Drop any embedded avatar blob so the file-based picture path wins.
-  sudo dscl . -delete "/Users/$(id -un)" JPEGPhoto 2>/dev/null || true
-
   # Set the user profile picture.
   sudo dscl . -create "/Users/$(id -un)" Picture "${HOME}/.dotfiles/avatar.jpeg"
 fi
@@ -123,6 +120,7 @@ if command -v dockutil >/dev/null 2>&1; then
   dockutil --no-restart --add "/System/Applications/Calendar.app"
   dockutil --no-restart --add "/System/Applications/Reminders.app"
   dockutil --no-restart --add "/System/Applications/Notes.app"
+  dockutil --no-restart --add "/Applications/ChatGPT.app"
   dockutil --no-restart --add "/Applications/Ghostty.app"
   dockutil --no-restart --add "${HOME}/Downloads" --section others --view fan --display folder --sort dateadded
 fi
@@ -137,10 +135,6 @@ sudo pmset -c disksleep 0
 sudo pmset -b sleep 10
 sudo pmset -b displaysleep 10
 sudo pmset -b disksleep 10
-
-# Disable macOS Tips suggestions.
-launchctl disable "gui/$(id -u)/com.apple.tipsd"
-launchctl bootout "gui/$(id -u)/com.apple.tipsd" 2>/dev/null || true
 
 # Store iTerm2 preferences in ~/.config/iterm2.
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.config/iterm2"
