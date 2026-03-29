@@ -20,6 +20,7 @@ brew "vim"
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 
 cask "1password"
+cask "chatgpt"
 cask "chromium"
 cask "claude-code"
 cask "cloudflare-warp"
@@ -30,7 +31,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "ghostty"
 cask "google-chrome"
 cask "ngrok"
-cask "outline-manager"
 
 mas "Monosnap", id: 540348655
 mas "Slack", id: 803453959
