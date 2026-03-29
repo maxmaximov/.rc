@@ -1,3 +1,5 @@
+tap "domt4/autoupdate"
+
 brew "agent-browser"
 brew "bat"
 brew "colordiff"

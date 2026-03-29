@@ -65,6 +65,7 @@
 
 - shell:
     - [rm -rf "$HOME/.zsh_sessions" "$HOME/.zsh_history" "$HOME/.lesshst", Remove legacy zsh and less state files]
+    - [brew autoupdate start --upgrade --cleanup, Enable Homebrew autoupdate]
     - [mise install, Install global mise toolchains]
     - [mise trust "$HOME/.dotfiles/config/mise", Trust dotfiles mise config]
     - [mise trust "$HOME/.config/mise", Trust linked mise config]
