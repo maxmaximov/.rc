@@ -25,6 +25,7 @@ window-save-state = always
 scrollback-limit = 200000
 mouse-hide-while-typing = true
 copy-on-select = true
+auto-update = off
 shell-integration = detect
 shell-integration-features = no-cursor,title,no-sudo,no-ssh-env,no-ssh-terminfo,path
 keybind = super+shift+left=move_tab:-1
