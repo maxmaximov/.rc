@@ -25,6 +25,7 @@
     ~/.config/bat: config/bat
     ~/.config/ghostty: config/ghostty
     ~/.config/git: config/git
+    ~/.config/hushlogin: config/hushlogin
     ~/.config/mise: config/mise
     ~/.config/nvim: config/nvim
     ~/.config/oh-my-posh: config/oh-my-posh
@@ -42,6 +43,7 @@
       ignore-missing: true
 
     ~/.zshenv: config/zsh/.zshenv
+    ~/.hushlogin: config/hushlogin
 
     ~/.ssh/config: config/ssh/config
     ~/.ssh/id_ed25519.pub: config/ssh/id_ed25519.pub
